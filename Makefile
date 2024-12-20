@@ -15,10 +15,14 @@ build: #
 	mkdir -p ./tmp
 	go build -o ./tmp/my-cosign-server main.go
 
+.PHONY: run
+run: #
+	./tmp/my-cosign-server
+
 .PHONY: all
 all: #
 	$(MAKE) keys
 	$(MAKE) build
-	#$(MAKE) run
+	$(MAKE) run
 
 .DEFAULT_GOAL := all
