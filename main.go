@@ -57,14 +57,6 @@ func loadPrivateKey(filename string, logger *log.Logger) (*rsa.PrivateKey, error
 	return privateKey, nil
 }
 
-func decodeBase64ToHex(data string) (string, error) {
-	decodedString, err := base64.StdEncoding.DecodeString(data)
-	if err != nil {
-		return "", fmt.Errorf("error decoding base64 data: %w", err)
-	}
-	return strings.ToUpper(string(decodedString)), nil
-}
-
 func jwtStrToCliam(jwtStr string) (map[string]interface{}, error) {
 	jwtStr = strings.TrimPrefix(jwtStr, "Bearer ")
 	claimBase64 := strings.Split(jwtStr, ".")[1]
