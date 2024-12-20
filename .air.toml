@@ -1,0 +1,12 @@
+[build]
+  cmd = "go build -o tmp/my-cosign-server"
+  bin = "tmp/my-cosign-server"
+  log = "air.log"
+
+[watch]
+  # TODO: make air listen to go.mod go.sum and config toml
+  includes = ["."]
+  excludes = ["tmp"]
+
+[log]
+  level = "info"
